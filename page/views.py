@@ -24,10 +24,10 @@ def page_list(request):
 def page_detail(request, pk):
     page = get_object_or_404(Page, pk=pk)
     if request.method == 'GET':
-     serializer = PageSerializer(car);
+     serializer = PageSerializer(page);
      return Response(serializer.data)
     elif request.method =='PUT':
-      serializer = PageSerializer(car, data=request.data)
+      serializer = PageSerializer(page, data=request.data)
       serializer.is_valid(raise_exception=True)
       serializer.save()
       return Response(serializer.data)
